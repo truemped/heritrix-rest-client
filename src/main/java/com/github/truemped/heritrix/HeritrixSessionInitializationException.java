@@ -1,9 +1,7 @@
 package com.github.truemped.heritrix;
 
 /**
- * User: daniel
- * Date: 29.09.2010
- * Time: 14:21:29
+ * Wrapping Exception for initializing errors.
  */
 public class HeritrixSessionInitializationException extends Exception {
 

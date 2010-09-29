@@ -10,93 +10,121 @@ import org.w3c.dom.Document;
  */
 public interface HeritrixSession {
 
-      /**
-     * @param jobName
-     * @param cXml
+    /**
+     * Update the job's configuration.
+     * 
+     * @param jobName Name of the Heritrix Job.
+     * @param cXml The new Job configuration as XML.
      */
     void updateConfig(String jobName, String cXml);
 
     /**
-     * @param jobName
+     * Checkpoint a job.
+     *
+     * @param jobName Name of the Heritrix Job.
      */
     void checkpointJob(String jobName);
 
     /**
-     * @param jobName
+     * Tear down a job.
+     *
+     * @param jobName Name of the Heritrix Job.
      */
     void tearDownJob(String jobName);
 
     /**
-     * @param jobName
+     * Terminate a job.
+     *
+     * @param jobName Name of the Heritrix Job.
      */
     void terminateJob(String jobName);
 
     /**
-     * @param jobName
+     * Launch a job.
+     *
+     * @param jobName Name of the Heritrix Job.
      */
     boolean launchJob(String jobName);
 
     /**
-     * @param jobName
+     * Build a job.
+     *
+     * @param jobName Name of the Heritrix Job.
      */
     boolean buildJob(String jobName);
 
     /**
-     * @param jobName
+     * Unpause a job.
+     *
+     * @param jobName Name of the Heritrix Job.
      */
     void unpauseJob(String jobName);
 
     /**
-     * @param jobName
+     * Pause a job.
+     *
+     * @param jobName Name of the Heritrix Job.
      */
     void pauseJob(String jobName);
 
     /**
+     * Rescan the job directory.
+     * 
      * @return TODO
-     *
      */
     Document rescanJobDirectory();
 
     /**
-     * @param jobName
+     * Create a new job.
+     * 
+     * @param jobName Name of the Heritrix Job.
      */
     void createJob(String jobName);
 
     /**
-     * @param jobName
+     * Check if a job is running.
+     * 
+     * @param jobName Name of the Heritrix Job.
      * @return <b>true</b> if the job is running.
      */
     boolean isJobRunning(String jobName);
 
     /**
-     * @param jobName
-     * @return
+     * Return a job's status description.
+     *
+     * @param jobName Name of the Heritrix Job.
+     * @return The parsed XML.
      */
     Document getJobStatus(String jobName);
 
     /**
-     * @param jobName
-     * @return the crawlLog.
+     * Return the complete crawl log.
+     * 
+     * @param jobName Name of the Heritrix Job.
+     * @return The crawlLog as a {@link HttpResponse}.
      */
     HttpResponse getCrawlLog(String jobName);
 
     /**
-     * @param jobName
-     * @return
+     * Check if a job exists.
+     *
+     * @param jobName Name of the Heritrix Job.
+     * @return <b>true</b> if the job exists.
      */
     boolean jobExists(String jobName);
 
     /**
      * Produces a job with the jobName which is a copy of the original.
-     * @param original
-     * @param jobName
-     * @param asProfile true if there is no sample and the job hast to be constructed based on a profile.
+     *
+     * @param original The name of the original job.
+     * @param jobName Name of the Heritrix Job.
+     * @param asProfile <b>true</b> if there is no sample and the job hast to be constructed based on a profile.
      */
     void copyJob(String original, String jobName, boolean asProfile);
 
     /**
-     * @param jobName
-     * @return
+     * @param jobName Name of the Heritrix Job.
+     * @return <b>true</b> if the job is paused.
      */
     boolean isPaused(String jobName);
 

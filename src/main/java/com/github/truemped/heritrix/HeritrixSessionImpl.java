@@ -37,9 +37,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * User: daniel
- * Date: 29.09.2010
- * Time: 14:18:06
+ * Interface implementation using Apache HTTP Client 4.0.1
  */
 public class HeritrixSessionImpl implements HeritrixSession {
 
